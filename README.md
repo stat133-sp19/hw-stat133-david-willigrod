@@ -6,7 +6,7 @@ Private Repository for HW assignments of Stat 133 (Spring 2019)
 - Github username: david-willigrod
 - Email: address wavid@berkeley.edu
 - Lab section: 110
-- GSI: Sunhi
+- GSI: Shuni Li
 
 -----
 
