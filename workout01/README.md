@@ -1,0 +1,1 @@
+# In this HW, I will provide visualizations of shot data for a handful of players from the Golden State Worriors. I will then produce a table with the relavant data for my analysis of the effective shooting percentages from 3 point attempts vs. 2 point attempts. I will then produce a report on my findings.
