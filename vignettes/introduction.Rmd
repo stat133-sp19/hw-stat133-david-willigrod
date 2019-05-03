@@ -17,7 +17,7 @@ library(binomial)
 
 ## Binomial 
 
-The package "'Binomial'" implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc.
+The package "'binomial'" implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc.
 
 
 ### Creating a Binomial Random Variabe
