@@ -1,0 +1,68 @@
+---
+title: "introduction.Rmd"
+author: "David Bian"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Introduction to cointoss}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(Binomial)
+```
+
+### Binomial 
+
+The package "'Binomial'" is an implementation of a binomial distribution given a number
+of trials and a probaiblity for success. There are several functions that can be used to
+plot and summarize both the PDF and CDF of a binomial distribution.
+
+
+
+### Creating a Binomial Random Variabe
+
+Create a Binomial random variable using the bin_variable() function, which takes in a number of "trial" and the"probaiblity" of success. The function creates an object with and attribute "trial" and "probability" that you can use for other functions in the Binomial function.
+
+```{r}
+var <- bin_variable(20, .6)
+var
+var$trials
+var$prob
+```
+
+### Summarizing a Binomial Random Variable
+
+You can find key metrics of a Binomial object that you created from bin_variable() using the summary() function.
+
+```{r}
+
+summary(var)
+
+```
+
+### Finding a Binomial PMF or CDF
+
+You can alternatively view a specific probability mass function of a binomial variable by using the bin_distribution() function. This function takes in two parameters "trial" and "prob" that work in the same way as the parameters for bin_variable(). You can either use the attributes of your Binomial object created from bin_variable() or you can manually input new values for the parameters. bin_distribution() will return an object that displays the Binomial PMF with your speciifed values. Alternatively, if you want to find the cummulative distribution function you can use the function bin_cummulative() which is identical to bin_distribution() in usage but outputs a CDF instead of a PMF.
+
+```{r}
+pdf_var <- bin_distribution(var$trials, var$prob)
+pdf_var
+
+cdf_var <- bin_cumulative(var$trials, var$prob)
+cdf_var
+
+```
+
+### Plotting a Binomial Distribution
+
+The Binomial package allows for easy visualization of a Binomial distribution. You can use the plot() function on an object created by the bin_distribution() or bin_cummulative() functions
+to generate a plot.
+
+```{r}
+plot(pdf_var)
+plot(cdf_var)
+```
+
