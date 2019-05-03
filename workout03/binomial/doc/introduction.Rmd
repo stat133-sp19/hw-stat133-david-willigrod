@@ -1,0 +1,68 @@
+---
+title: "Getting Started with cointoss"
+author: "David Willigrod"
+date: "5/2/2019"
+output: rmarkdown::html_vignette
+
+vignette: >
+  %\VignetteIndexEntry{Introduction to cointoss}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(binomial)
+```
+
+## Binomial 
+
+The package "'binomial'" implements functions for calculating probabilities of a Binomial random variable, and related calculations such as the probability distribution, the expected value, variance, etc.
+
+
+### Creating a Binomial Random Variabe
+
+Create a Binomial random variable using the bin_variable() function, which takes in a number of trials, "trial", and the probablity, "prob", of success. This function creates an object with and attribute "trial" and "prob" that you can use for other built in functions and methods.
+
+```{r}
+bin_var <- bin_variable(10, .4)
+bin_var
+bin_var$trials
+bin_var$prob
+```
+
+### Summarizing a Binomial Random Variable
+
+You can find key metrics of a Binomial random variable object created from bin_variable() using the summary() function. Each of the specified metrics; mean, variance, mode, skewness, and kurtosis, can be accesses by the user buy inputing a given number of trials and the probability of success for each trial
+
+```{r}
+summary(bin_var)
+bin_mean(10, .4)
+bin_variance(10, .4)
+bin_mode(10, .4)
+bin_skewness(10, .4)
+bin_kurtosis(10, .4)
+```
+
+### Finding a Binomial Probability Distribution or Cumulative Distribution
+
+You can view a probability distribution of a binomial variable by using the bin_distribution() function. This function takes in two arguments, "trial" and "prob", that work in the same way as the arguments for bin_variable(). You can either use the attributes of your Binomial object created from bin_variable() or you can manually input new values for the arguments. bin_distribution() will return an object that displays the Binomial Probability Distribution with your inputed values. Alternatively, if you want to find the cummulative distribution function, you can use the function bin_cumulative() which is identical to bin_distribution() in usage but outputs a CDF instead of a the Probability Distribution Function. bin_cumulative will also display the probability of each possible number of successes.
+
+```{r}
+pdf_var <- bin_distribution(bin_var$trials, bin_var$prob)
+pdf_var
+
+cdf_var <- bin_cumulative(bin_var$trials, bin_var$prob)
+cdf_var
+
+```
+
+### Plotting a Binomial Distribution
+
+The Binomial package allows for easy visualization of a Binomial distribution for both the probability distribution and the cumulative distribution. You can use the plot() function on an object created by the bin_distribution() function to produce a histogram of the probabilities for each possible number of successes.  You can also use the plot() function on an object created by the bin_cummulative() function to generate a line graph of the cumulative distribution.
+
+```{r}
+plot(pdf_var)
+plot(cdf_var)
+```
+
