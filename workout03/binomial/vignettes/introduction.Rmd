@@ -1,5 +1,5 @@
 ---
-title: title: "Getting Started with cointoss"
+title: "Getting Started with cointoss"
 author: "David Willigrod"
 date: "5/2/2019"
 output: rmarkdown::html_vignette
